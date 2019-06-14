@@ -1,0 +1,44 @@
+import React, { Component,createContext } from 'react';
+
+
+const BatteryContext = createContext();
+
+class Leaf extends Component {
+  render() {
+    return (
+      // 消费者,接受的值，必须以函数的形式
+      <BatteryContext.Consumer>
+        {
+          battery => <h1>Battery: {battery} </h1>
+        }
+      </BatteryContext.Consumer>
+    )
+  }
+}
+
+class Middle extends Component {
+  render() {
+    return <Leaf />
+  }
+}
+
+class Context extends Component {
+  state = {
+    battery: 60
+  }
+  
+  render() {
+    const {battery} = this.state
+    return (
+      // 生产者,如果有多个Provider，嵌套写即可，顺序不重要
+      <BatteryContext.Provider value = {battery}>
+        <button onClick={() => this.setState({battery: battery+1})}>
+          Click me
+        </button>
+        <Middle />
+      </BatteryContext.Provider>
+    )
+  }
+}
+
+export default Context;
