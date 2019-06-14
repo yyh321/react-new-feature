@@ -4,14 +4,23 @@ import React, { Component,createContext } from 'react';
 const BatteryContext = createContext();
 
 class Leaf extends Component {
+  // 静态变量
+  static contextType = BatteryContext
   render() {
+    // contextType会获得一个context变量
+    const battery = this.context;
     return (
       // 消费者,接受的值，必须以函数的形式
-      <BatteryContext.Consumer>
-        {
-          battery => <h1>Battery: {battery} </h1>
-        }
-      </BatteryContext.Consumer>
+      // <BatteryContext.Consumer>
+      //   {
+      //     battery => <h1>Battery: {battery} </h1>
+      //   }
+      // </BatteryContext.Consumer>
+
+      // 使用contextType改造Consumer，contextType是一个静态变量，在运行时会获得一个context变量
+
+      <h1>Battery: {battery} </h1>
+
     )
   }
 }
