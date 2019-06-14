@@ -4,10 +4,11 @@ import './index.css';
 // import App from './App';
 // import Context from './Context';
 // import Lazy from './Lazy';
-import Memo from './Memo';
+// import Memo from './Memo';
+import UseState from './UseState'
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Memo />, document.getElementById('root'));
+ReactDOM.render(<UseState />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
