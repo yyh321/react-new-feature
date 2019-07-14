@@ -8,9 +8,10 @@ import App from './App';
 // import UseState from './UseState'
 import ContextHooks from "./ContextHooks";
 import UseMemoHooks from "./UseMemoHooks";
+import UseRefHook from "./UseRefHook";
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<UseMemoHooks />, document.getElementById("root"));
+ReactDOM.render(<UseRefHook />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
